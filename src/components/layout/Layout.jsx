@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Navbar from '../navbar/Navbar'
 import Footer from '../footer/Footer'
-import myContext from '../../context/data/myContext'
+import myContext from '../../context/Data/myContext'
 
 const Layout = ({ children }) => {
 

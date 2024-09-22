@@ -5,7 +5,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/Firebase';
 import Loader from '../../components/loader/loading';
 import { toast } from 'react-toastify';
-import myContext from '../../context/data/myContext';
+import myContext from '../../context/Data/myContext';
 
 const Login = () => {
   const context = useContext(myContext);

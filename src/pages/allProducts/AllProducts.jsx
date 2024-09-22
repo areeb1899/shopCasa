@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import { toast } from 'react-toastify';
 import Layout from '../../components/layout/Layout';
-import myContext from '../../context/data/myContext';
+import myContext from '../../context/Data/myContext';
 
 const AllProducts = () => {
   const navigate = useNavigate();

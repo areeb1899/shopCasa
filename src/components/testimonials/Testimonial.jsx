@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "slick-carousel/slick/slick.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
-import myContext from "../../context/data/myContext";
+import myContext from "../../context/Data/myContext";
 
 const testimonials = [
     {

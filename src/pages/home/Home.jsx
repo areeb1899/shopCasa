@@ -6,7 +6,7 @@ import Testimonial from '../../components/testimonials/Testimonial'
 import ImageSlider from '../../components/imageSlider/ImageSlider'
 import IntroVideo from "../../assets/logoIntro.webm"
 import logo from "../../assets/logo.png"
-import myContext from '../../context/data/myContext'
+import myContext from '../../context/Data/myContext'
 
 
 const Home = () => {

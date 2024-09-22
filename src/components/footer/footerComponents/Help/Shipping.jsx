@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import myContext from '../../../../context/data/myContext';
 import Layout from '../../../layout/Layout';
+import myContext from '../../../../context/Data/myContext';
 
 const Shipping = () => {
     const { mode } = useContext(myContext);

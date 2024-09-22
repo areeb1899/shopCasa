@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import {useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import myContext from '../../context/data/myContext';
+import myContext from '../../context/Data/myContext';
 
 const ProductCard = () => {
     const navigate = useNavigate();

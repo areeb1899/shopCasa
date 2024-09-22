@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 import { addDoc, collection } from 'firebase/firestore'
 import { fireDb } from '../../firebase/Firebase'
 import { Link, useNavigate } from 'react-router-dom'
-import myContext from '../../context/data/myContext'
+import myContext from '../../context/Data/myContext'
 
 
 

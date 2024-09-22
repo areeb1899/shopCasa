@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Layout from '../../../components/layout/Layout';
-import myContext from '../../../context/data/myContext';
+import myContext from '../../../context/Data/myContext';
 
 const UpdateProduct = () => {
     const context = useContext(myContext);

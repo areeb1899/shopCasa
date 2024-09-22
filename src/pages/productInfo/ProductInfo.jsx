@@ -7,7 +7,7 @@ import { fireDb } from '../../firebase/Firebase';
 import { toast } from 'react-toastify';
 import { addToCart } from '../../redux/cartSlice';
 import Loader from '../../components/loader/loading';
-import myContext from '../../context/data/myContext';
+import myContext from '../../context/Data/myContext';
 
 const ProductInfo = () => {
     const context = useContext(myContext);
@@ -149,7 +149,75 @@ const ProductInfo = () => {
                             )}
                         </div>
 
-                        {/* ...Other parts of your component remain the same */}
+                         {/*------------------------------------------ Reviews Section in a Card--------------------------------------------------- */}
+
+
+                         <div className={`p-6 rounded-lg shadow-lg m-10 max-w-2xl mx-auto ${mode === 'dark' ? 'bg-gray-800 text-gray-200' : 'bg-white text-gray-800'}`}>
+                            <h3 className={`text-2xl font-semibold mb-6 ${mode === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+                                Reviews
+                            </h3>
+
+                            {/* Reviews List */}
+                            {reviews.length === 0 ? (
+                                <p className={`${mode === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                                    No reviews yet. Be the first to review this product!
+                                </p>
+                            ) : (
+                                reviews.map((review) => (
+                                    <div
+                                        key={review.id}
+                                        className={`border-b py-4 transition-all duration-200 ${mode === 'dark' ? 'border-gray-700' : 'border-gray-200'}`}
+                                    >
+                                        <p className="font-bold">{review.name}</p>
+                                        <p className="mt-2">{review.comment}</p>
+                                        <small className="text-sm"> {new Date(review.timestamp?.toDate()).toLocaleDateString()}</small>
+                                    </div>
+                                ))
+                            )}
+
+                            {/* Review Form */}
+                            <form
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+                                    if (loggedInUser) {
+                                        addReview(params.id, {
+                                            name: loggedInUser.name || "Anonymous", // Use logged-in user's name or default to "Anonymous"
+                                            comment: reviewComment,
+                                        });
+                                        setReviewComment(''); // Clear the form
+                                    } else {
+                                        toast.error("You must be logged in to submit a review");
+                                    }
+                                }}
+                                className="mt-8 space-y-4"
+                            >
+                                <textarea
+                                    value={reviewComment}
+                                    onChange={(e) => setReviewComment(e.target.value)}
+                                    required
+                                    placeholder="Write your review here"
+                                    disabled={!loggedInUser} // Disable textarea if user is not logged in
+                                    className={`w-full p-3 resize-none rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${mode === 'dark' ? 'bg-gray-700 border-gray-600 text-gray-200 focus:ring-gray-500' : 'bg-gray-100 border-gray-300 text-gray-800 focus:ring-[#b3997f]'}`}
+                                />
+
+                                <button
+                                    type="submit"
+                                    disabled={!loggedInUser} // Disable button if user is not logged in
+                                    className={`mt-4 px-6 py-3 rounded-lg text-sm font-semibold shadow-md transition-all duration-300 ${mode === 'dark' ? 'bg-gray-600 hover:bg-gray-500 text-gray-200' : 'bg-[#ffddb9] hover:bg-[#ccaf91] text-gray-800'} ${!loggedInUser ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                >
+                                    Submit Review
+                                </button>
+
+                                {/* Optional: Message to show if the user is not logged in */}
+                                {!loggedInUser && (
+                                    <p className={`mt-4 text-sm ${mode === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                                        You need to <Link to="/login" className="text-blue-500 underline">log in</Link> to submit a review.
+                                    </p>
+                                )}
+                            </form>
+
+                        </div>
+
                     </section>
                 )}
             </Layout>

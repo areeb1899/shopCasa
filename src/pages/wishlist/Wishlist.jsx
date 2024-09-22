@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../../components/layout/Layout';
-import myContext from '../../context/data/myContext';
 import { toast } from 'react-toastify';
+import myContext from '../../context/Data/myContext';
 
 const Wishlist = () => {
     const context = useContext(myContext);

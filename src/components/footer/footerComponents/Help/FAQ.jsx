@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import myContext from '../../../../context/data/myContext';
 import Layout from '../../../layout/Layout';
+import myContext from '../../../../context/Data/myContext';
 
 const FAQ = () => {
     const { mode } = useContext(myContext);

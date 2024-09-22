@@ -7,8 +7,8 @@ import { auth, fireDb } from '../../firebase/Firebase';
 import { addDoc, collection, doc, getDoc, Timestamp } from 'firebase/firestore';
 import Loader from '../../components/loader/loading';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import myContext from '../../context/data/myContext';
 import { FaGoogle } from "react-icons/fa";
+import myContext from '../../context/Data/myContext';
 
 
 
