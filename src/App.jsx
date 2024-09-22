@@ -23,7 +23,7 @@ import Shipping from './components/footer/footerComponents/Help/Shipping'
 import CancellationAndReturns from './components/footer/footerComponents/Help/CancellationAndReturns'
 import FAQ from './components/footer/footerComponents/Help/FAQ'
 import Wishlist from './pages/wishlist/Wishlist'
-import ScrollToTop from './components/scrollToTop'
+import ScrollToTop from './components/ScrollToTop'
 
 
 
