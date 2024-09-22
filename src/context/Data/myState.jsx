@@ -9,18 +9,20 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 const myState = (props) => {
     const navigate = useNavigate();
 
-    const [mode, setMode] = useState('light');
 
-    // Dark mode
+    //dark mode
+    const [mode, setMode] = useState(localStorage.getItem('mode') || 'light');
+
     const toggleMode = () => {
-        if (mode === 'light') {
-            setMode('dark');
-            document.body.style.backgroundColor = 'rgb(17,24,39)';
-        } else {
-            setMode('light');
-            document.body.style.backgroundColor = 'white';
-        }
+        const newMode = mode === 'light' ? 'dark' : 'light';
+        setMode(newMode);
+        localStorage.setItem('mode', newMode);
+        document.body.style.backgroundColor = newMode === 'dark' ? 'rgb(17,24,39)' : 'white';
     };
+
+    useEffect(() => {
+        document.body.style.backgroundColor = mode === 'dark' ? 'rgb(17,24,39)' : 'white';
+    }, [mode]);
 
     // Loading
     const [loading, setLoading] = useState(false);
